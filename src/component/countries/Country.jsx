@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Country = ({ countryS }) => {
   console.log(countryS);
 
+  const [visited, setVisited] = useState(false);
+
   const handleVisited = () => {
-    console.log("Clicked Visited");
+    if (visited) {
+      setVisited(false);
+    } else {
+      setVisited(true);
+    }
   };
   return (
     <div className=" ">
-      <div className="rounded-lg flex flex-col p-5 justify-center items-center border-2">
+      <div
+        className={`rounded-lg flex flex-col p-5 justify-center items-center border-2 ${visited && "bg-green-900"}`}
+      >
         <img
           className="w-[50%] h-[50%]"
           src={countryS.flags.flags.png}
@@ -23,7 +31,7 @@ const Country = ({ countryS }) => {
           {countryS.area.area > 300000 ? "Big Country" : "Small Country"}
         </p>
         <button onClick={handleVisited} className="btn">
-          Visited
+          {visited ? "Visited" : "Not Visited"}
         </button>
       </div>
     </div>
