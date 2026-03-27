@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-const Country = ({ countryS }) => {
-  console.log(countryS);
+const Country = ({ countryS, vCountry }) => {
+  console.log(vCountry);
 
   const [visited, setVisited] = useState(false);
 
@@ -11,6 +11,8 @@ const Country = ({ countryS }) => {
     } else {
       setVisited(true);
     }
+
+    vCountry();
   };
   return (
     <div className=" ">
